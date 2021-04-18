@@ -1,0 +1,49 @@
+*** Required Software
+
+- Java
+- Git
+- Apache Maven
+- Jenkins
+
+
+*** Install Java,Git,Maven
+
+$ java
+$ sudo apt install openjdk-11-jre-headless or sudo apt install default-jre
+$ sudu apt install git
+$ git --version
+$ sudu apt install maven
+$ mvn -version
+
+
+*** Step 1 — Installing Jenkins
+
+$ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+$ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+$ sudo apt update
+$ sudo apt install jenkins
+
+
+*** Step 2 — Starting Jenkins
+
+$ sudo systemctl status jenkins
+$ sudo systemctl status jenkins
+
+
+*** Step 3 — Opening the Firewall
+
+$ sudo ufw allow 8080
+$ sudo ufw allow OpenSSH
+$ sudo ufw allow proto tcp from 192.168.121.0/24 to any port 8080
+$ sudo ufw enable
+$ sudo ufw status
+
+
+*** Step 4 — Setting Up Jenkins
+
+- Go to the browser search bar > localhost:8080 > copy the password link
+- Back to the terminal
+$ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+- initial password copy > go to jenkins dashboard > paste the password > continue > install suggested plugin
+
+*** Successfully install jenkins
